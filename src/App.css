@@ -1,0 +1,274 @@
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.top {
+  padding-top: 2%; 
+  padding-left: 3%;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.lados {
+  padding: 2%;  
+}
+
+.root {
+  flex-grow: 1px;
+}
+
+.paper {
+  width: 165px;
+  margin: 8px;
+}
+
+.button {
+  width: 38px !important;
+  height: 36px !important;
+  margin-top: -122px !important; 
+  left: 128px;
+  background-color: white !important;
+  border-bottom: 1px solid #cdcdcd !important;
+  transition: transform .2s !important;
+  opacity: 0.78;
+  z-index: 1;
+  border-radius: 10% !important;
+}
+
+.button:hover{
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.input {
+  display: none;
+}
+
+.nomeLivros {
+  position: relative;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+  background-color: #d6e8ff;
+  width: 129px;
+  height: 64px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-top: -7px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgLivro {
+  width: 100%;
+  height: 220px;
+
+}
+
+.imgT {
+  margin: 1.4%;
+  padding: 5px;
+}
+
+.imageTitle {
+  position: 'relative';
+  padding: 10px;
+}
+
+.logo {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  font-size: 1.5rem !important;
+  float: left;
+  padding: 5px;
+  color: #00FFFF !important;
+  text-decoration: underline;
+}
+
+.botaoHome{
+  width: 86.4%;
+  float: left;
+}
+
+.botaoCarrinho{
+  padding: 0px!important;
+  float: right;
+}
+
+.botaoLink1 {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  text-decoration: none;
+  display: flex !important;
+  
+}
+
+.botaoLink2 {
+  padding: 0px !important; 
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  text-decoration: none;
+  display: flex !important;
+}
+
+
+.barraMenu {
+  box-shadow: 1px 1px 3px #cdcdcd;
+  background-color:#2196f3 ;
+  position: relative;
+  display: flex;
+}
+
+.imagemMenu {
+  width: 70px; 
+  height: 40px;
+  float: left;
+}
+
+.carrinho {
+  display: flex;
+  margin-top: -10px;
+}
+
+.divTabela {
+  width: 100% !important;
+}
+
+.tabela {
+  width: 100% !important;
+  height: 100% !important;
+} 
+
+.contador {
+  padding-left: 33%;
+}
+
+.colunaPrecoTotal {
+  min-width: 100px;
+}
+
+.btnCartModal {
+  margin-top: 30px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-content: center !important;
+}
+
+.txtModalValor {
+  padding-right: 25px !important;
+  margin: 10px !important;
+}
+
+.finalizarCompra {
+  margin: 10px;
+}
+
+.paper1 {
+  min-width: 76vmin !important;
+  max-height: 53vmin !important;
+  float: left;
+  overflow-y: auto !important;
+  overflow-x: auto !important;
+}
+
+.paper2 {
+  max-width: 38% !important;
+  float: left;
+  padding: 8px;
+}
+
+.cPaper {
+  margin: 15px;
+}
+
+.typoTeste{
+  float: right;
+  margin-top: -20px !important;
+}
+
+.snackbarContent {
+  background-color: #43a047 !important;
+  box-shadow: 0px 0px 0px !important;
+}
+
+.msgScankBar {
+  position: relative;
+  display: flex !important;
+}
+
+.icon {
+  font-size: 20px !important;
+  opacity: 0.9 !important;
+  margin-right: 10px !important;
+}
+
+.badgeT {
+  color: floralwhite;
+  width: 20px !important;
+  background-color:#f50057 ;
+  margin: 7px;
+  border-radius: 25%;
+}
+
+.btnH {
+  float: right;
+}
+
+.MuiBadge-badge-131{
+  top: -4px !important;
+  right: 11px !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.Cor {
+  background-color: #2196f3 !important;
+}
+
+.MuiInput-underline-160:before{
+  border-bottom: 1px solid #2196f3!important;
+}
+
+.MuiInput-underline-160:after{
+  border-bottom:2px solid #2196f3 !important;
+}
+
+.div{
+  margin-top:100px !important;
+  margin-left:-350px !important;
+}
+
+.MuiBadge-badge-133 {
+  top: 10px !important;
+  right: 10px !important;
+  width: 17px !important;
+  height: 17px !important;
+}
