@@ -17,6 +17,7 @@ import { observer } from 'mobx-react';
 import { Ilivro } from '../Stores/Pedido';
 
 import CarrinhoStore from '../Stores/CarrinhoStore';
+import LivroProduto from '../Stores/livroProduto';
 
 const styles1 = () => ({
     success: {
@@ -27,12 +28,12 @@ const styles1 = () => ({
 interface IProps extends WithStyles<typeof styles1> {
     classes: any;
     store: CarrinhoStore;
+    produto: LivroProduto;
 }
 
 interface IState {
     open: boolean;
 }
-
 
 @observer
 class GuttersGrid extends React.Component<IProps, IState, {}> {
@@ -61,7 +62,7 @@ class GuttersGrid extends React.Component<IProps, IState, {}> {
                             <Grid key={value.codigo}  >
                                 <Paper className="paper">
                                     <div className="imgT">
-                                        <Botao livro={value} title={value.nome} width='100%' url={require('../img/' + value.img)} />
+                                        <Botao produto={this.props.produto} livro={value} title={value.nome} width='100%' url={require('../img/' + value.img)} />
                                     </div>
                                 </Paper>
                                 <a onClick={this.handleClick}>

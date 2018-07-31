@@ -14,7 +14,7 @@
       @observable public qtd:number;
       public codigo: number;
       public livro: Ilivro;
-
+ 
       constructor(codigo: number, livro: Ilivro, qtd: number){
         this.codigo = codigo;  
         this.livro = livro;

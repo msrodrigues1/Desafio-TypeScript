@@ -10,6 +10,7 @@ import * as React from 'react';
 
 import { Redirect } from 'react-router-dom'
 
+import LivroProduto, {IlivroProduto} from '../Stores/livroProduto';
 
 const styles = (theme: Theme) => createStyles({
     focusVisible: {},
@@ -113,7 +114,8 @@ interface IProps extends WithStyles<typeof styles> {
     title: string;
     width: string;
     url: string;
-    livro: any;
+    livro: IlivroProduto;
+    produto: LivroProduto;
 }
 
 interface IState {
@@ -128,14 +130,13 @@ class ButtonBases extends React.Component<IProps, IState> {
     };
 
     public handleClick = () => {
+        this.props.produto.livro = this.props.livro;
         this.setState({ open: true });
     };
 
     public handleClose = () => {
         this.setState({ open: false });
     };
-
- 
 
     public render(): JSX.Element {
 
@@ -161,7 +162,7 @@ class ButtonBases extends React.Component<IProps, IState> {
                     </span>
                 </ButtonBase>
                 <DialogContent className={classes.valor}>
-                    Valor: {this.props.livro.preco}
+                    Valor: {this.props.produto.livro.preco}
                 </DialogContent>
             </div>
         );

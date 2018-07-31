@@ -9,6 +9,7 @@ import * as React from 'react';
 import { createStyles, Theme, WithStyles, withStyles } from '@material-ui/core';
 
 import { observer } from 'mobx-react';
+import LivroProduto from '../Stores/livroProduto';
 
 function TabContainer(props:IPropsF) {
     return (
@@ -59,7 +60,7 @@ interface IPropsF {
 }
 
 interface IProps extends WithStyles<typeof styles> {
-
+    produto: LivroProduto;
 }
 
 interface IState {
@@ -85,7 +86,7 @@ class TelaDescricao extends React.Component<IProps, IState> {
         return (
             <Grid container={true} spacing={16}>
                 <Paper className={classes.paperFoto}>
-                    Teste 1
+                    <img style={{height:'100%', width:'100%'}} src={require('../img/' + this.props.produto.livro.codigo+ '.jpg') } />
                 </Paper>
                 <Paper className={classes.paperTitulo}>
                     <Typography>  Teste 2 </Typography>
