@@ -3,10 +3,13 @@ import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/s
 import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import Dialog from '@material-ui/core/Dialog';
+ import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+
+import { Redirect } from 'react-router-dom'
+
 
 const styles = (theme: Theme) => createStyles({
     focusVisible: {},
@@ -124,7 +127,7 @@ class ButtonBases extends React.Component<IProps, IState> {
         open: false,
     };
 
-    public handleOpen = () => {
+    public handleClick = () => {
         this.setState({ open: true });
     };
 
@@ -132,15 +135,20 @@ class ButtonBases extends React.Component<IProps, IState> {
         this.setState({ open: false });
     };
 
+ 
 
     public render(): JSX.Element {
+
+        if (this.state.open === true) {
+            return <Redirect to='/Produto' />
+          }
 
         const { classes } = this.props;
 
         return (
             <div className={classes.root}>
                 <ButtonBase
-                    onClick={this.handleOpen}
+                    onClick={this.handleClick}
                     key={this.props.title} className={classes.image}
                     focusVisibleClassName={classes.focusVisible} style={{ width: this.props.width, }}>
                     <span className={classes.imageSrc} style={{ backgroundImage: `url(${this.props.url})`, }} />
@@ -152,16 +160,6 @@ class ButtonBases extends React.Component<IProps, IState> {
                         </Typography>
                     </span>
                 </ButtonBase>
-                <Dialog open={this.state.open} onClose={this.handleClose}
-                    aria-labelledby="scroll-dialog-title">
-                    <DialogTitle id="scroll-dialog-title">{this.props.livro.nome}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            {this.props.livro.desc}
-                        </DialogContentText>
-                    </DialogContent>
-
-                </Dialog>
                 <DialogContent className={classes.valor}>
                     Valor: {this.props.livro.preco}
                 </DialogContent>
@@ -175,3 +173,22 @@ const SimpleModalWrapped = withStyles(styles)(ButtonBases);
 
 
 export default SimpleModalWrapped;
+
+
+/*
+
+                <Dialog open={this.state.open} onClose={this.handleClose}
+                    aria-labelledby="scroll-dialog-title">
+                    <DialogTitle id="scroll-dialog-title">{this.props.livro.nome}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            {this.props.livro.desc}
+                        </DialogContentText>
+                    </DialogContent>
+
+                </Dialog>
+                <DialogContent className={classes.valor}>
+                    Valor: {this.props.livro.preco}
+                </DialogContent>
+
+*/

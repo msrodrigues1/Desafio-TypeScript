@@ -59,8 +59,7 @@ interface IPropsF {
 }
 
 interface IProps extends WithStyles<typeof styles> {
-    title: string;
-    livro: any;
+
 }
 
 interface IState {
@@ -70,12 +69,14 @@ interface IState {
 @observer
 class TelaDescricao extends React.Component<IProps, IState> {
 
-    public state = {
+    public state:IState = {
         value: 0,
     };
 
-    public handleChange  = (): void => {
-        this.setState({ value:0 });
+    public handleChange = (value: number): void =>{
+        let pog = value===0?1:0;
+        pog = value===1?0:1;
+        this.setState({ value: pog });
     };
 
     public render(): JSX.Element {
@@ -83,7 +84,6 @@ class TelaDescricao extends React.Component<IProps, IState> {
         const { value } = this.state;
         return (
             <Grid container={true} spacing={16}>
-            
                 <Paper className={classes.paperFoto}>
                     Teste 1
                 </Paper>
@@ -97,7 +97,7 @@ class TelaDescricao extends React.Component<IProps, IState> {
                     <Typography> Teste 4 </Typography>
                 </Paper>
                 <Paper className={classes.paperDescricaoProduto}>
-                    <Tabs value={value} onChange={this.handleChange}
+                    <Tabs value={value} onChange={() => this.handleChange(value)}
                         indicatorColor="primary" textColor="primary" centered={true}>
                         <Tab label="Detalhes do Produto" />
                         <Tab label="Descrição do Produto" />
