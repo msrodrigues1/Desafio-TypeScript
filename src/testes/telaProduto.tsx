@@ -11,6 +11,8 @@ import { createStyles, Theme, WithStyles, withStyles } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import LivroProduto from '../Stores/livroProduto';
 
+import CircularIntegration from './progress';
+
 function TabContainer(props:IPropsF) {
     return (
         <Typography component="div" className="div">
@@ -53,6 +55,23 @@ const styles =  (theme: Theme) => createStyles({
         marginLeft: '-4px',
         width: '47%',
     }, 
+    preco:{
+        border: '1px solid',
+        display: 'flex',
+        fontSize: '18px',
+        justifyContent:'center',
+        margin: '40px',
+    },
+    txtTitulo:{
+        fontSize: '22px',
+        marginLeft: '1%',
+        marginTop:'2px',
+    },
+
+    txtDescricao:{
+        fontSize: '14px',
+        margin: '3%',
+    },
 });
 
 interface IPropsF {
@@ -89,23 +108,35 @@ class TelaDescricao extends React.Component<IProps, IState> {
                     <img style={{height:'100%', width:'100%'}} src={require('../img/' + this.props.produto.livro.codigo+ '.jpg') } />
                 </Paper>
                 <Paper className={classes.paperTitulo}>
-                    <Typography>  Teste 2 </Typography>
+                    <Typography className={classes.txtTitulo}>
+                        {this.props.produto.livro.nome}
+                    </Typography>
                 </Paper>
                 <Paper className={classes.paperDescricao}>
-                    <Typography> Teste 3 </Typography>
+                    <Typography className={classes.txtDescricao}> 
+                        {this.props.produto.livro.desc}
+                    </Typography>
                 </Paper>
                 <Paper className={classes.paperPreco}>
-                    <Typography> Teste 4 </Typography>
+                    <Typography className={classes.preco}>
+                        Ebook PDF: R$:{this.props.produto.livro.preco}
+                    </Typography>
+                    <Typography className={classes.preco}>
+                        Livro Físico:  R$:{this.props.produto.livro.preco}
+                    </Typography>
+                    <CircularIntegration/>
                 </Paper>
-                <Paper className={classes.paperDescricaoProduto}>
-                    <Tabs value={value} onChange={() => this.handleChange(value)}
+                <Grid container={true} wrap="nowrap" >
+                <Paper  className={classes.paperDescricaoProduto}>
+                    <Tabs value={value} onChange={() => this.handleChange(value)}   
                         indicatorColor="primary" textColor="primary" centered={true}>
                         <Tab label="Detalhes do Produto" />
                         <Tab label="Descrição do Produto" />
                     </Tabs>
-                    {value === 0 && <TabContainer>Item One</TabContainer>}
+                    {value === 0 && <TabContainer  >Item One</TabContainer>}
                     {value === 1 && <TabContainer>Item Two</TabContainer>}
                 </Paper>
+                </Grid>
             </Grid>
         );
     }
